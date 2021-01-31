@@ -93,7 +93,7 @@ function askEngineer() {
 
          {
              type: 'input',
-             name: 'interEmail',
+             name: 'internEmail',
              message: 'What is the email'
          },
 
@@ -103,6 +103,10 @@ function askEngineer() {
              message: 'What is the name of the school'
          }
      ])
+     .then(response => {
+         const intern = new Intern (response.internName, response.internID, response.internEmail, response.school);
+         teamarr.push(intern);
+     })
  }
 }
 
