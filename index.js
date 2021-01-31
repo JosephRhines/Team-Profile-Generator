@@ -5,7 +5,11 @@ const Employee = require('./lib/Employee')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager')
+const team = require('./src/page-template')
 
+const teamarr = [];
+
+function start() {
 function askManager() {
 inquirer.prompt([
     {
@@ -34,6 +38,10 @@ inquirer.prompt([
 
 
 ])
+.then(response => {
+    const manager = new Manager (response.managerName, response.managerId, response.email, response.officeNumber);
+    teamarr.push(manager);
+})
 }
 
 
@@ -63,9 +71,13 @@ function askEngineer() {
             message: 'What is the Github Username'
         }
    ])
+   .then(response => {
+   const engineer = new Engineer (response.engineerName, response.engineerId, response.engineerEmail, response.gitHub);
+   teamarr.push(engineer);
+   })
  }
 
- function askInturn() {
+ function askIntern() {
      inquirer.prompt([
          {
              type: 'input',
@@ -92,6 +104,7 @@ function askEngineer() {
          }
      ])
  }
+}
 
 
 
