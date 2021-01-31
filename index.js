@@ -41,9 +41,10 @@ inquirer.prompt([
 .then(response => {
     const manager = new Manager (response.managerName, response.managerId, response.email, response.officeNumber);
     teamarr.push(manager);
+    addPerson();
 })
 }
-
+askManager()
 
 function askEngineer() {
   inquirer.prompt([
@@ -74,6 +75,7 @@ function askEngineer() {
    .then(response => {
    const engineer = new Engineer (response.engineerName, response.engineerId, response.engineerEmail, response.gitHub);
    teamarr.push(engineer);
+   addPerson()
    })
  }
 
@@ -106,9 +108,55 @@ function askEngineer() {
      .then(response => {
          const intern = new Intern (response.internName, response.internID, response.internEmail, response.school);
          teamarr.push(intern);
+         addPerson()
      })
  }
+ function addPerson() {
+     inquirer.prompt([
+         {
+             type: 'list',
+             name: 'addNew',
+             message: 'Select a Role',
+             choices: ['manager', 'engineer', 'intern', 'finished']
+         }
+     ])
+     .then(response => {
+         const role = response.addNew;
+         if (role == 'manager') {
+             askManager();
+         }
+         else if (role == 'engineer') {
+             askEngineer();
+         }
+         else if (role == 'intern') {
+             askIntern();
+         }
+         else if (role == 'finished') {
+             inquirer.prompt([
+                 {
+                     type: 'input',
+                     name: 'team',
+                     message: 'What is the name of your team'
+                 }
+             ])
+            .then(response => {
+                
+                displayTeam(response.team)
+            })
+            
+
+         }
+     })
+   
+ }
+ 
+function displayTeam(answer) {
+    fs.mkdirSync(__dirname + "/dist/" + `${answer}/`);
+    fs.writeFileSync(__dirname + "/dist/" + `${answer}/` + 'index.html', team(teamarr), (err) => err ? console.log(err) : console.log('Success'))
 }
+
+}
+start();
 
 
 
