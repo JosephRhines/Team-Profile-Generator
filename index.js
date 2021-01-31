@@ -151,9 +151,19 @@ function askEngineer() {
  }
  
 function displayTeam(answer) {
-    fs.mkdirSync(__dirname + "/dist/" + `${answer}/`);
+    if (!fs.existsSync(__dirname + "/dist")) {
+        fs.mkdirSync(__dirname + "/dist");
+    }
+ 
+    if(!fs.existsSync(__dirname + "/dist" + `${answer}/`)) {
+        fs.mkdirSync(__dirname + "/dist/" + `${answer}/`);
+    }
+    
     fs.writeFileSync(__dirname + "/dist/" + `${answer}/` + 'index.html', team(teamarr), (err) => err ? console.log(err) : console.log('Success'))
+   fs.copyFile('./style.css', __dirname + '/dist/' + `${answer}/` + 'style.css', (err) => err ? console.log(err) : console.log('Success'))
+   
 }
+
 
 }
 start();
