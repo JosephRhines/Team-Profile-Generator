@@ -5,15 +5,15 @@ const generateTeam = team => {
     const generateManager = manager => {
         return `
         <div class="card employee-card">
-        <div class="card-header">
-            <h2 class="card-title">${manager.getName()}</h2>
+        <div class="card-header manager">
+            <h2 class="card-title text-center">${manager.getName()}</h2>
             <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item">ID: ${manager.getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+                <li class="list-group-item"><strong>ID:</strong> ${manager.getId()}</li>
+                <li class="list-group-item"><strong>Email:</strong> <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item"><strong>Office number:</strong> ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
     </div>
@@ -24,15 +24,15 @@ const generateTeam = team => {
     const generateEngineer = engineer => {
         return `
         <div class="card employee-card">
-    <div class="card-header">
-        <h2 class="card-title">${engineer.getName()}</h2>
+    <div class="card-header cardheader">
+        <h2 class="card-title text-center">${engineer.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item">ID: ${engineer.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+            <li class="list-group-item"><strong>ID:</strong> ${engineer.getId()}</li>
+            <li class="list-group-item"><strong>Email:</strong> <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+            <li class="list-group-item"><strong>GitHub:</strong> <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
         </ul>
     </div>
 </div>
@@ -43,15 +43,15 @@ const generateTeam = team => {
     const generateIntern = intern => {
         return `
         <div class="card employee-card">
-    <div class="card-header">
-        <h2 class="card-title">${intern.getName()}</h2>
+    <div class="card-header cardheader">
+        <h2 class="card-title text-center">${intern.getName()}</h2>
         <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item">ID: ${ intern.getId() }</li>
-            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-            <li class="list-group-item">School: ${intern.getSchool()}</li>
+            <li class="list-group-item"><strong>ID:</strong> ${ intern.getId() }</li>
+            <li class="list-group-item"><strong>Email:</strong> <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+            <li class="list-group-item"><strong>School:</strong> ${intern.getSchool()}</li>
         </ul>
     </div>
 </div>
@@ -100,7 +100,7 @@ module.exports = team => {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
+            <div class="col-12 jumbotron mb-3 team-heading cardheader">
                 <h1 class="text-center">My Team</h1>
             </div>
         </div>
