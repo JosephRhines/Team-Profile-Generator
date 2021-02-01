@@ -5,11 +5,8 @@ Application that generates a team profile using prompts
 
 ## Tools:
 * node.js
-<br>
 * inquirer
-<br>
 * fs
-<br>
 * jest
 
 ## User Story:
