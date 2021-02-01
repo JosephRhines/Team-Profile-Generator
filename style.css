@@ -5,3 +5,7 @@ body {
 .cardheader {
     background-color: aquamarine;
 }
+
+.manager {
+    background-color: red;
+}
